@@ -26,41 +26,46 @@ if (isset($_GET['logout'])) {
     function myFunction2(imgs) {
       var expandImg = document.getElementById("expandedImg2");
       expandImg.src = imgs.src;
-      l2 = imgs.src;
+      l2 = document.getElementById("expandedImg2").getAttribute('src');
       expandImg.parentElement.style.display = "block";
     }
     function myFunction3(imgs) {
       var expandImg = document.getElementById("expandedImg3");
       expandImg.src = imgs.src;
-      l3 = imgs.src;
+      l3 = document.getElementById("expandedImg3").getAttribute('src');
       expandImg.parentElement.style.display = "block";
     }
     
     function buy1()
     {
      // document.write (l1);
-      var str = l1;
-      var res = str.substring(24, str.length);
-      window.open ("http://localhost/wtproj/index.php?res=" + res, '_blank');
+      
+      var str1 = l1;
+      var res1 = str1.substring(24, str1.length);
+      window.open ("http://localhost/wtproj/index.php?res=" + res1, '_blank');
       //document.write(res);
     }
     function buy2()
     {
      // document.write (l1);
-      var str = l2;
-      var res = str.substring(24, str.length);
-      window.open("http://localhost/wtproj/buy.php?res=" + res, '_blank');
+      var str2 = l2;
+      var res2 = str2.substring(24, str2.length);
+      console.log(res2);
+      window.open("http://localhost/wtproj/index.php?res=" + res2, '_blank');
       //document.write(res);
     }
     function buy3()
     {
      // document.write (l1);
-      var str = l3;
-      var res = str.substring(24, str.length);
-      window.open("http://localhost/wtproj/buy.php?res=" + res, '_blank');
+      var str3 = l3;
+      var res3 = str3.substring(24, str3.length);
+      window.open("http://localhost/wtproj/index.php?res=" + res3, '_blank');
       //document.write(res);
     }
-    
+    // function post()
+    // {
+
+    // }
     //   var try1 = document.getElementById("expandedImg1").getAttribute("src");
     //   windows.alert("try1");
     //   console.log("try1");
@@ -173,6 +178,11 @@ if (isset($_GET['logout'])) {
         height: 100%;
         object-fit: contain;
       }
+      body{
+        font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+        background: #000;
+      }
+
 /*making di button stick to bottom */
 /*.fixed-footer{
         width: 100%;
@@ -202,7 +212,7 @@ if (isset($_GET['logout'])) {
 
 </head>
 
-<body>
+<body style="background-image: url(images/p2.jpeg);">
  <ul>
   <li><a class="active">OUTFIT VISUALIZER</a></li>
   <li style="float:right">
@@ -214,9 +224,9 @@ if (isset($_GET['logout'])) {
   </li>
   <li style="float:right">
     <?php if(isset($_SESSION['username'])): ?>
-    <a href="blog.php" >Blog</a>
+    <a href="blog.php" >Profile</a>
     <?php else: ?>
-    <a href="login.php">Blog</a>
+    <a href="login.php">Profile</a>
   <?php endif; ?>
   <li style="float:right"><a class="active" href="comb.php" target ="_self">Create Outfit</a></li>
   <li style="float:right"><a href="landing.php" target ="_self">Home</a></li>
@@ -224,14 +234,15 @@ if (isset($_GET['logout'])) {
 
 
 <div class = "row">
-  <p style="text-align: left color : yellow"><h3>Select Top</h3></p>
-    <div align="right"><button class="w3-button w3-small w3-white w3-round-xxlarge" onclick="buy1()">Buy Similar</button></div>
+  
+<p style="text-align:left; color:yellow"  style="font-size:2.5vw"><h3 style="font-family:'apple chancery', cursive;color:#fafafa">Select Top</h3></p>
+    <div align="right"><button class="w3-button w3-small w3-white w3-round-xxlarge" onclick="buy1()" style="position:relative;top:-50px">Buy Similar</button></div>
   <div class = "scrolling-wrapper">
 <!-- <?php 
 $result = $_GET['res'];
 //echo $result;
 ?> -->
-
+<div class="photorow" style="position:relative;top:-70px">
     <?php
     $imagesDirectory = "images/Top/";
     if (is_dir($imagesDirectory))
@@ -259,16 +270,20 @@ $result = $_GET['res'];
     }
     ?>
   </div>
+  </div>
 </div>
-<div class="container1" id="c1">
-  <span onclick ="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+<div class="container1">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <img id="expandedImg1" style="width:35% height:100%">
 
 </div>
 <div class = "row">
-  <p><h2>Select Bottom</h2></p>
-  <div align="right"><button class="w3-button w3-small w3-white w3-round-xxlarge" onclick="buy2()">Buy Similar</button></div>
+  <div style="position:relative;top:-10px">
+  <p style="font-size:2.5vw; position:relative;top:-10px"><h3 style="font-family:'apple chancery', cursive;color:#fafafa">Select Bottom</h3></p>
+  <div align="right"><button class="w3-button w3-small w3-white w3-round-xxlarge" onclick="buy2()" style="position:relative;top:-60px">Buy Similar</button></div>
+    </div>
   <div class = "scrolling-wrapper">
+    <div class="photorow2" style="position:relative;top:-70px">
     <?php
     $imagesDirectory = "images/Bottom/";
     if (is_dir($imagesDirectory))
@@ -296,15 +311,17 @@ $result = $_GET['res'];
     }
     ?>
   </div>
+  </div>
 </div>
 <div class="container2">
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <img id="expandedImg2" style="width:35% height:100%">
 </div>
 <div class = "row">
-  <p><h2>Select Shoes</h2></p>
-  <div align="right"><button class="w3-button w3-small w3-white w3-round-xxlarge" onclick="buy3()">Buy Similar</button></div>
+  <p  style="font-size:2.5vw;"><h3 style="font-family:'apple chancery', cursive;color:#fafafa">Select Shoes</h3></p>
+  <div align="right"><button class="w3-button w3-small w3-white w3-round-xxlarge" onclick="buy3()" style="position:relative;top:-50px">Buy Similar</button></div>
   <div class = "scrolling-wrapper">
+    <div class="photorow2" style="position:relative;top:-70px">
     <?php
     $imagesDirectory = "images/Shoes/";
     if (is_dir($imagesDirectory))
@@ -332,13 +349,15 @@ $result = $_GET['res'];
     }
     ?>
   </div>
+  </div>
 </div>
 <div class="container2">
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <img id="expandedImg3" style="width:35% height:100%">
 </div>
 <br>
-<!-- <div class="fixed-footer">
+<!-- <button class="w3-button w3-small w3-white w3-round-xxlarge" onclick="post()">Post to Profile</button>
+ --><!-- <div class="fixed-footer">
 <button class="w3-button w3-black w3-round-xxlarge">Round XXLarge</button>
 </div> -->
 </body>

@@ -13,9 +13,9 @@
       <li style="float:right"><a class="active" href="login.php">Login</a></li>
       <li style="float:right">
       <?php if(isset($_SESSION['username'])): ?>
-        <a href="blog.php" >Blog</a>
+        <a href="blog.php" >Profile</a>
         <?php else: ?>
-        <a href="login.php">Blog</a>
+        <a href="login.php">Profile</a>
       <?php endif; ?>
       <li style="float:right"><a href="comb.php" target ="_self">Create Outfit</a></li>
       <li style="float:right"><a href="landing.php" target ="_self">Home</a></li>

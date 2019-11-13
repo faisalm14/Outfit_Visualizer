@@ -29,7 +29,7 @@ if (isset($_GET['logout'])) {
         <a href="login.php">Login</a>
         <?php endif; ?>
       </li>
-      <li style="float:right"><a class="active" href="blog.php">Blog</a></li>
+      <li style="float:right"><a class="active" href="blog.php">Profile</a></li>
       <li style="float:right"><a href="comb.php" target ="_self">Create Outfit</a></li>
       <li style="float:right"><a href="landing.php" target ="_self">Home</a></li>
     </ul>
