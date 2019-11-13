@@ -49,7 +49,7 @@ if (isset($_GET['logout'])) {
      // document.write (l1);
       var str = l2;
       var res = str.substring(24, str.length);
-      window.location.href = "http://localhost/wtproj/index.php?res=" + res;
+      window.open("http://localhost/wtproj/buy.php?res=" + res, '_blank');
       //document.write(res);
     }
     function buy3()
@@ -57,7 +57,7 @@ if (isset($_GET['logout'])) {
      // document.write (l1);
       var str = l3;
       var res = str.substring(24, str.length);
-      window.location.href = "http://localhost/wtproj/index.php?res=" + res;
+      window.open("http://localhost/wtproj/buy.php?res=" + res, '_blank');
       //document.write(res);
     }
     //   var try1 = document.getElementById("expandedImg1").getAttribute("src");
@@ -213,7 +213,7 @@ if (isset($_GET['logout'])) {
   </li>
   <li style="float:right">
     <?php if(isset($_SESSION['username'])): ?>
-    <a href="index.php" >Blog</a>
+    <a href="blog.php" >Blog</a>
     <?php else: ?>
     <a href="login.php">Blog</a>
   <?php endif; ?>

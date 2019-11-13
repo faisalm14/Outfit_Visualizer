@@ -53,7 +53,7 @@ if (isset($_GET['logout'])) {
       </li>
       <li style="float:right">
       <?php if(isset($_SESSION['username'])): ?>
-          <a href="index.php" >Blog</a>
+          <a href="blog.php" >Blog</a>
           <?php else: ?>
             <a href="login.php">Blog</a>
           <?php endif; ?>
