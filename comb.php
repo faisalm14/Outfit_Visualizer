@@ -60,6 +60,7 @@ if (isset($_GET['logout'])) {
       window.open("http://localhost/wtproj/buy.php?res=" + res, '_blank');
       //document.write(res);
     }
+    
     //   var try1 = document.getElementById("expandedImg1").getAttribute("src");
     //   windows.alert("try1");
     //   console.log("try1");
@@ -259,8 +260,8 @@ $result = $_GET['res'];
     ?>
   </div>
 </div>
-<div class="container1">
-  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+<div class="container1" id="c1">
+  <span onclick ="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <img id="expandedImg1" style="width:35% height:100%">
 
 </div>
